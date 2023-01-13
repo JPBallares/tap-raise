@@ -1,0 +1,7 @@
+SquareReaderSDK.xcframework filter=lfs diff=lfs merge=lfs -text
+SquareReaderSDK.xcframework/* filter=lfs diff=lfs merge=lfs -text
+ios/SquareReaderSDK.xcframework/* filter=lfs diff=lfs merge=lfs -text
+SquareReaderSDK.xcframework/* !text !filter !merge !diff
+SquareReaderSDK.xcframework !text !filter !merge !diff
+ios/SquareReaderSDK.xcframework/ios-arm64_x86_64-simulator/SquareReaderSDK.framework/SquareReaderSDK filter=lfs diff=lfs merge=lfs -text
+ios/SquareReaderSDK.xcframework/ios-arm64/SquareReaderSDK.framework/SquareReaderSDK filter=lfs diff=lfs merge=lfs -text

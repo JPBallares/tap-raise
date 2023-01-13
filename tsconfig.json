@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+
+    /* Completeness */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "baseUrl": "./src",
+    "paths": {
+      "@navigation": ["./navigation"],
+      "@navigation/*": ["./navigation/*"],
+      "@screens": ["./screens"],
+      "@screens/*": ["./screens/*"],
+      "@components": ["./components"],
+      "@components/*": ["./components/*"],
+    }
+  }
+}
