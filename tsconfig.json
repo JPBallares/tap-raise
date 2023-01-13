@@ -7,12 +7,26 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "baseUrl": "./src",
     "paths": {
+      "@assets": ["./assets"],
+      "@assets/*": ["./assets/*"],
       "@navigation": ["./navigation"],
       "@navigation/*": ["./navigation/*"],
       "@screens": ["./screens"],
       "@screens/*": ["./screens/*"],
       "@components": ["./components"],
       "@components/*": ["./components/*"],
+      "@i18n": ["./i18n"],
+      "@i18n/*": ["./i18n/*"],
+      "@hooks": ["./hooks"],
+      "@hooks/*": ["./hooks/*"],
+      "@store": ["./store"],
+      "@store/*": ["./store/*"],
+      "@services": ["./services"],
+      "@services/*": ["./services/*"],
+      "@theme": ["./theme"],
+      "@theme/*": ["./theme/*"],
+      "@utils": ["./utils"],
+      "@utils/*": ["./utils/*"]
     }
   }
 }
