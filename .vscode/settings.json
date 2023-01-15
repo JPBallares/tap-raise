@@ -1,0 +1,6 @@
+{
+    "editor.tabSize": 2,
+    "eslint.format.enable": true,
+    "typescript.format.enable": false,
+    "javascript.format.enable": true,
+}
