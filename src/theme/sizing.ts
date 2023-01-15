@@ -1,61 +1,61 @@
 import {StyleSheet} from 'react-native';
 
 export const SIZING = StyleSheet.create({
-  w100: {
+  W100: {
     width: '100%',
   },
-  w95: {
+  W95: {
     width: '95%',
   },
-  w90: {
+  W90: {
     width: '90%',
   },
-  w80: {
+  W80: {
     width: '80%',
   },
-  w70: {
+  W70: {
     width: '70%',
   },
-  w63: {
+  W63: {
     width: '63%',
   },
-  w60: {
+  W60: {
     width: '60%',
   },
-  w50: {
+  W50: {
     width: '50%',
   },
-  w40: {
+  W40: {
     width: '40%',
   },
-  w33: {
+  W33: {
     width: '33%',
   },
-  w20: {
+  W20: {
     width: '20%',
   },
-  w10: {
+  W10: {
     width: '10%',
   },
-  mw90: {
+  MW90: {
     maxWidth: '90%',
   },
-  mw80: {
+  MW80: {
     maxWidth: '80%',
   },
-  mw70: {
+  MW70: {
     maxWidth: '70%',
   },
-  h60: {
+  H60: {
     height: '60%',
   },
-  h20: {
+  H20: {
     height: '20%',
   },
-  h15: {
+  H15: {
     height: '15%',
   },
-  h10: {
+  H10: {
     height: '10%',
   },
 });

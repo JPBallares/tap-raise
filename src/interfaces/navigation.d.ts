@@ -9,4 +9,7 @@ export type MainStackParamList = {
   [ROUTES.SUCCESS]: undefined;
 };
 
-export type Props = NativeStackScreenProps<MainStackParamList, ROUTES.MAIN>;
+export type MainStackScreenProps = NativeStackScreenProps<
+  MainStackParamList,
+  ROUTES.MAIN
+>;

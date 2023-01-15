@@ -5,8 +5,7 @@ import {RF} from './responsive';
 import {SIZING} from './sizing';
 import {SPACING} from './spacing';
 
-const {BLACK, RED_600, GRAY_200, GRAY_100, WHITE, BLUE_600, OVERLAY, GRAY_300} =
-  COLORS;
+const {BLACK, RED_600, GRAY_200, GRAY_100, WHITE, GRAY_300} = COLORS;
 
 export const GST = StyleSheet.create({
   ...SPACING,

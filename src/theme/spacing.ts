@@ -3,349 +3,349 @@ import {StyleSheet} from 'react-native';
 import {RF} from './responsive';
 
 export const SPACING = StyleSheet.create({
-  m3: {
+  M3: {
     margin: RF(12),
   },
-  mb0: {
+  MB0: {
     marginBottom: 0,
   },
-  mx0: {
+  MX0: {
     marginHorizontal: 0,
   },
-  m1: {
+  M1: {
     margin: RF(4),
   },
-  ml0: {
+  ML0: {
     marginLeft: 0,
   },
-  mr0: {
+  MR0: {
     marginRight: 0,
   },
-  mb0_5: {
+  MB0_5: {
     marginBottom: RF(2),
   },
-  ml1: {
+  ML1: {
     marginLeft: RF(4),
   },
-  mr1: {
+  MR1: {
     marginRight: RF(4),
   },
-  mt0: {
+  MT0: {
     marginTop: RF(2),
   },
-  mt20: {
+  MT20: {
     marginTop: RF(70),
   },
-  mt1: {
+  MT1: {
     marginTop: RF(4),
   },
-  mb1: {
+  MB1: {
     marginBottom: RF(4),
   },
-  mx1: {
+  MX1: {
     marginHorizontal: RF(4),
   },
-  my1: {
+  MY1: {
     marginVertical: RF(4),
   },
-  mt2: {
+  MT2: {
     marginTop: RF(8),
   },
-  mb2: {
+  MB2: {
     marginBottom: RF(8),
   },
-  ml2: {
+  ML2: {
     marginLeft: RF(8),
   },
-  mr2: {
+  MR2: {
     marginRight: RF(8),
   },
-  mx2: {
+  MX2: {
     marginHorizontal: RF(8),
   },
-  my2: {
+  MY2: {
     marginVertical: RF(8),
   },
-  mt3: {
+  MT3: {
     marginTop: RF(12),
   },
-  mb3: {
+  MB3: {
     marginBottom: RF(12),
   },
-  ml3: {
+  ML3: {
     marginLeft: RF(12),
   },
-  mr3: {
+  MR3: {
     marginRight: RF(12),
   },
-  mx3: {
+  MX3: {
     marginHorizontal: RF(12),
   },
-  my3: {
+  MY3: {
     marginVertical: RF(12),
   },
-  mt4: {
+  MT4: {
     marginTop: RF(16),
   },
-  mr4: {
+  MR4: {
     marginRight: RF(16),
   },
-  ml4: {
+  ML4: {
     marginLeft: RF(16),
   },
-  mb4: {
+  MB4: {
     marginBottom: RF(16),
   },
-  mx4: {
+  MX4: {
     marginHorizontal: RF(16),
   },
-  my4: {
+  MY4: {
     marginVertical: RF(16),
   },
-  mt5: {
+  MT5: {
     marginTop: RF(20),
   },
-  mr5: {
+  MR5: {
     marginRight: RF(20),
   },
-  mb5: {
+  MB5: {
     marginBottom: RF(20),
   },
-  mx5: {
+  MX5: {
     marginHorizontal: RF(20),
   },
-  ml5: {
+  ML5: {
     marginLeft: RF(20),
   },
-  my5: {
+  MY5: {
     marginVertical: RF(20),
   },
-  ml6: {
+  ML6: {
     marginLeft: RF(24),
   },
-  mt6: {
+  MT6: {
     marginTop: RF(24),
   },
-  mb6: {
+  MB6: {
     marginBottom: RF(24),
   },
-  mx6: {
+  MX6: {
     marginHorizontal: RF(24),
   },
-  my6: {
+  MY6: {
     marginVertical: RF(24),
   },
-  mb7: {
+  MB7: {
     marginBottom: RF(28),
   },
-  ml7: {
+  ML7: {
     marginLeft: RF(28),
   },
-  mt7: {
+  MT7: {
     marginTop: RF(28),
   },
-  mx7: {
+  MX7: {
     marginHorizontal: RF(28),
   },
-  mt8: {
+  MT8: {
     marginTop: RF(32),
   },
-  mb8: {
+  MB8: {
     marginBottom: RF(32),
   },
-  my8: {
+  MY8: {
     marginVertical: RF(32),
   },
-  mx8: {
+  MX8: {
     marginHorizontal: RF(32),
   },
-  mb9: {
+  MB9: {
     marginBottom: RF(36),
   },
-  mx9: {
+  MX9: {
     marginHorizontal: RF(36),
   },
-  my9: {
+  MY9: {
     marginVertical: RF(36),
   },
-  mb10: {
+  MB10: {
     marginBottom: RF(40),
   },
-  mt10: {
+  MT10: {
     marginTop: RF(40),
   },
-  my10: {
+  MY10: {
     marginVertical: RF(40),
   },
-  mx10: {
+  MX10: {
     marginHorizontal: RF(40),
   },
-  mb20: {
+  MB20: {
     marginBottom: RF(80),
   },
-  my12: {
+  MY12: {
     marginVertical: RF(48),
   },
-  p0: {
+  P0: {
     padding: 0,
   },
-  px0: {
+  PX0: {
     paddingHorizontal: 0,
   },
-  pt0: {
+  PT0: {
     paddingTop: 0,
   },
-  pl0: {
+  PL0: {
     paddingLeft: 0,
   },
-  p1: {
+  P1: {
     padding: RF(4),
   },
-  pb1: {
+  PB1: {
     paddingBottom: RF(4),
   },
-  pt1: {
+  PT1: {
     paddingTop: RF(4),
   },
-  px1: {
+  PX1: {
     paddingHorizontal: RF(4),
   },
-  py1: {
+  PY1: {
     paddingVertical: RF(4),
   },
-  p2: {
+  P2: {
     padding: RF(8),
   },
-  pt2: {
+  PT2: {
     paddingTop: RF(8),
   },
-  pb2: {
+  PB2: {
     paddingBottom: RF(8),
   },
-  pl2: {
+  PL2: {
     paddingLeft: RF(8),
   },
-  pl3: {
+  PL3: {
     paddingLeft: RF(12),
   },
-  px2: {
+  PX2: {
     paddingHorizontal: RF(8),
   },
-  py2: {
+  PY2: {
     paddingVertical: RF(8),
   },
-  p3: {
+  P3: {
     padding: RF(12),
   },
-  py3: {
+  PY3: {
     paddingVertical: RF(12),
   },
-  pb3: {
+  PB3: {
     paddingBottom: RF(12),
   },
-  pr2: {
+  PR2: {
     paddingRight: RF(8),
   },
-  pr3: {
+  PR3: {
     paddingRight: RF(12),
   },
-  pt3: {
+  PT3: {
     paddingTop: RF(12),
   },
-  pt4: {
+  PT4: {
     paddingTop: RF(16),
   },
-  pb4: {
+  PB4: {
     paddingBottom: RF(16),
   },
-  pl4: {
+  PL4: {
     paddingLeft: RF(16),
   },
-  pr4: {
+  PR4: {
     paddingRight: RF(16),
   },
-  pt5: {
+  PT5: {
     paddingTop: RF(20),
   },
-  pb5: {
+  PB5: {
     paddingBottom: RF(20),
   },
-  pl5: {
+  PL5: {
     paddingLeft: RF(20),
   },
-  pr5: {
+  PR5: {
     paddingRight: RF(20),
   },
-  pr10: {
+  PR10: {
     paddingRight: RF(40),
   },
-  pr12: {
+  PR12: {
     paddingRight: RF(48),
   },
-  pr13: {
+  PR13: {
     paddingRight: RF(52),
   },
-  p4: {
+  P4: {
     padding: RF(16),
   },
-  px3: {
+  PX3: {
     paddingHorizontal: RF(12),
   },
-  px4: {
+  PX4: {
     paddingHorizontal: RF(16),
   },
-  py4: {
+  PY4: {
     paddingVertical: RF(16),
   },
-  px5: {
+  PX5: {
     paddingHorizontal: RF(20),
   },
-  py5: {
+  PY5: {
     paddingVertical: RF(20),
   },
-  pl6: {
+  PL6: {
     paddingLeft: RF(24),
   },
-  pb6: {
+  PB6: {
     paddingBottom: RF(24),
   },
-  pt6: {
+  PT6: {
     paddingTop: RF(24),
   },
-  pb7: {
+  PB7: {
     paddingBottom: RF(30),
   },
-  px6: {
+  PX6: {
     paddingHorizontal: RF(24),
   },
-  px7: {
+  PX7: {
     paddingHorizontal: RF(30),
   },
-  py6: {
+  PY6: {
     paddingVertical: RF(24),
   },
-  pt8: {
+  PT8: {
     paddingTop: RF(32),
   },
-  py8: {
+  PY8: {
     paddingVertical: RF(32),
   },
-  px8: {
+  PX8: {
     paddingHorizontal: RF(32),
   },
-  pb9: {
+  PB9: {
     paddingBottom: RF(36),
   },
-  px9: {
+  PX9: {
     paddingHorizontal: RF(36),
   },
-  pb10: {
+  PB10: {
     paddingBottom: RF(40),
   },
-  pt10: {
+  PT10: {
     paddingTop: RF(40),
   },
-  px10: {
+  PX10: {
     paddingHorizontal: RF(40),
   },
 });
