@@ -6,16 +6,17 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {COLORS} from '@theme/colors';
 import {GST} from '@theme/globalStyles';
 import {RF} from '@theme/responsive';
-import {PIN_LENGTH, SETTINGS_PIN} from '@utils/constants';
+import {PIN_LENGTH} from '@utils/constants';
 import {splitString} from '@utils/helpers';
 import {ROUTES} from '@utils/routes';
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 
 type Props = StackScreenProps<MainStackParamList, ROUTES.PIN>;
 
-const Pin = ({navigation}: Props) => {
+const Pin = ({navigation, route}: Props) => {
   const [pin, setPin] = useState<string>('');
+  const {storedPin, nextScreen} = route.params;
 
   const pinDigits = useMemo(() => {
     return splitString(pin, PIN_LENGTH);
@@ -27,11 +28,11 @@ const Pin = ({navigation}: Props) => {
       if (pin.length < PIN_LENGTH) {
         setPin(newPin);
       }
-      if (newPin === SETTINGS_PIN) {
-        navigation.navigate(ROUTES.SETTINGS);
+      if (newPin === storedPin) {
+        navigation.navigate(nextScreen);
       }
     },
-    [navigation, pin],
+    [navigation, nextScreen, pin, storedPin],
   );
   const handleDelete = useCallback(() => {
     if (pin.length) {
@@ -41,6 +42,15 @@ const Pin = ({navigation}: Props) => {
 
   const handleCancel = useCallback(() => {
     navigation.goBack();
+  }, [navigation]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setPin('');
+    });
+
+    // remove listener on unmount
+    return unsubscribe;
   }, [navigation]);
 
   const buttons = useMemo(() => {

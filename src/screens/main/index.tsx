@@ -7,7 +7,7 @@ import Wrapper from '@components/wrapper';
 import {MainStackParamList} from '@interfaces/navigation';
 import {StackScreenProps} from '@react-navigation/stack';
 import {GST} from '@theme/globalStyles';
-import {DONATION_OPTIONS} from '@utils/constants';
+import {DONATION_OPTIONS, SETTINGS_PIN} from '@utils/constants';
 import {ROUTES} from '@utils/routes';
 import React from 'react';
 import {useState} from 'react';
@@ -40,7 +40,12 @@ const Main = ({navigation}: Props) => {
           <CustomImage
             path={settings}
             size={48}
-            onPress={() => navigation.navigate(ROUTES.PIN)}
+            onPress={() =>
+              navigation.navigate(ROUTES.PIN, {
+                storedPin: SETTINGS_PIN,
+                nextScreen: ROUTES.SETTINGS,
+              })
+            }
           />
         </View>
       </View>

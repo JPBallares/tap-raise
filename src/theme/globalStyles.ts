@@ -23,6 +23,10 @@ export const GST = StyleSheet.create({
   FLEX_END: {
     alignItems: 'flex-end',
   },
+  FLEX_CENTERED: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   SHADOW: {
     shadowColor: BLACK,
     shadowOffset: {
