@@ -1,3 +1,4 @@
+import CustomButton from '@components/customButton';
 import CustomText from '@components/customText';
 import Wrapper from '@components/wrapper';
 import {MainStackParamList} from '@interfaces/navigation';
@@ -10,7 +11,6 @@ import {splitString} from '@utils/helpers';
 import {ROUTES} from '@utils/routes';
 import React, {useCallback, useMemo, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 type Props = StackScreenProps<MainStackParamList, ROUTES.PIN>;
 
@@ -41,34 +41,28 @@ const Pin = ({navigation}: Props) => {
 
   const buttons = useMemo(() => {
     const allButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map(num => (
-      <TouchableOpacity
+      <CustomButton
         key={num}
         onPress={() => handlePress(num.toString())}
-        style={styles.pinButton}>
-        <CustomText size="2XL" color="WHITE">
-          {num}
-        </CustomText>
-      </TouchableOpacity>
+        containerStyle={styles.pinButton}
+        text={num.toString()}
+      />
     ));
     allButtons.push(
-      <TouchableOpacity
+      <CustomButton
         onPress={() => handleDelete()}
-        style={styles.pinButton}
-        key="delete">
-        <CustomText size="2XL" color="WHITE">
-          Delete
-        </CustomText>
-      </TouchableOpacity>,
+        containerStyle={styles.pinButton}
+        key="delete"
+        text="Delete"
+      />,
     );
     allButtons.push(
-      <TouchableOpacity
+      <CustomButton
         onPress={() => handleCancel()}
-        style={styles.pinButton}
-        key="cancel">
-        <CustomText size="2XL" color="WHITE">
-          Cancel
-        </CustomText>
-      </TouchableOpacity>,
+        containerStyle={styles.pinButton}
+        key="cancel"
+        text="Cancel"
+      />,
     );
     return allButtons;
   }, [handleCancel, handleDelete, handlePress]);
@@ -103,11 +97,11 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     ...GST.M1,
+    ...GST.SHADOW,
     width: RF(50),
     height: RF(50),
-    borderColor: COLORS.BLUE_600,
-    borderWidth: RF(1),
     borderRadius: RF(4),
+    backgroundColor: COLORS.WHITE,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -126,11 +120,9 @@ const styles = StyleSheet.create({
     ...GST.M1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: RF(1),
-    borderRadius: RF(4),
-    backgroundColor: COLORS.BLUE_600,
     height: RF(90),
     width: RF(90),
+    padding: 0,
   },
 });
 
