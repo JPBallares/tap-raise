@@ -6,7 +6,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {COLORS} from '@theme/colors';
 import {GST} from '@theme/globalStyles';
 import {RF} from '@theme/responsive';
-import {PIN_LENGTH} from '@utils/constants';
+import {PIN_LENGTH, SETTINGS_PIN} from '@utils/constants';
 import {splitString} from '@utils/helpers';
 import {ROUTES} from '@utils/routes';
 import React, {useCallback, useMemo, useState} from 'react';
@@ -23,11 +23,15 @@ const Pin = ({navigation}: Props) => {
 
   const handlePress = useCallback(
     (num: string) => {
+      const newPin = pin + num;
       if (pin.length < PIN_LENGTH) {
-        setPin(pin + num);
+        setPin(newPin);
+      }
+      if (newPin === SETTINGS_PIN) {
+        navigation.navigate(ROUTES.SETTINGS);
       }
     },
-    [pin],
+    [navigation, pin],
   );
   const handleDelete = useCallback(() => {
     if (pin.length) {
@@ -69,6 +73,11 @@ const Pin = ({navigation}: Props) => {
 
   return (
     <Wrapper>
+      <View style={styles.inputBoxContainer}>
+        <CustomText size="2XL" style={GST.BOLD}>
+          ENTER PASSCODE
+        </CustomText>
+      </View>
       <View style={styles.inputBoxContainer}>
         {pinDigits.map((digit, index) => (
           <View key={index} style={styles.inputBox}>
