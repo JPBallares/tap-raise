@@ -3,9 +3,6 @@ import {StyleSheet} from 'react-native';
 import {RF} from './responsive';
 
 export const SPACING = StyleSheet.create({
-  M3: {
-    margin: RF(12),
-  },
   MB0: {
     marginBottom: 0,
   },
@@ -14,6 +11,12 @@ export const SPACING = StyleSheet.create({
   },
   M1: {
     margin: RF(4),
+  },
+  M2: {
+    margin: RF(8),
+  },
+  M3: {
+    margin: RF(12),
   },
   ML0: {
     marginLeft: 0,

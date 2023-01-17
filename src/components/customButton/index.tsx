@@ -53,7 +53,7 @@ const CustomButton: React.FC<Props> = ({
           },
           textStyle,
         ]}
-        size="3XL">
+        size="2XL">
         {text}
       </CustomText>
     </TouchableOpacity>

@@ -20,6 +20,9 @@ export const GST = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  FLEX_END: {
+    alignItems: 'flex-end',
+  },
   SHADOW: {
     shadowColor: BLACK,
     shadowOffset: {
@@ -49,7 +52,7 @@ export const GST = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...SPACING.p3,
+    ...SPACING.P3,
     backgroundColor: WHITE,
   },
   MAIN_CONTAINER: {
@@ -71,10 +74,23 @@ export const GST = StyleSheet.create({
     height: 1,
     width: '100%',
     backgroundColor: GRAY_300,
-    ...SPACING.my2,
+    ...SPACING.MY2,
   },
   SUBMIT_BTN_CONTAINER: {
     flex: 1,
     justifyContent: 'flex-end',
+  },
+  HITSLOP: {
+    top: 10,
+    bottom: 10,
+    left: 10,
+    right: 10,
+  },
+  BOLD: {
+    fontWeight: '800',
+    letterSpacing: 2,
+  },
+  MEDIUM: {
+    fontWeight: '600',
   },
 });
