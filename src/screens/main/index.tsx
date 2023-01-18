@@ -18,16 +18,16 @@ import {TouchableWithoutFeedback, View} from 'react-native';
 type Props = StackScreenProps<MainStackParamList, ROUTES.MAIN>;
 
 const Main = ({navigation}: Props) => {
-  const {amounts} = useAppSelector((state: RootState) => state.config);
-  console.log(amounts);
+  const {logoUrl, donationText, amounts} = useAppSelector(
+    (state: RootState) => state.config,
+  );
   const [selectedAmount, setSelectedAmount] = useState(amounts[0]);
   return (
     <Wrapper>
-      <Banner uri="https://picsum.photos/300/200" />
+      <Banner uri={logoUrl} />
       <View style={[GST.P4, GST.FLEX]}>
         <CustomText size="3XL" center style={{...GST.MB4, ...GST.BOLD}}>
-          Your donation will help to support our football team to do great
-          things !
+          {donationText}
         </CustomText>
         <TouchableWithoutFeedback
           onPress={() => navigation.navigate(ROUTES.SUCCESS)}>
@@ -35,14 +35,16 @@ const Main = ({navigation}: Props) => {
             Tap to donate
           </CustomText>
         </TouchableWithoutFeedback>
-        {amounts.map((val, idx) => (
-          <CustomButton
-            text={'$' + val}
-            type={val === selectedAmount ? 'B' : 'A'}
-            onPress={() => setSelectedAmount(val)}
-            key={idx}
-          />
-        ))}
+        {amounts
+          .filter(val => val)
+          .map((val, idx) => (
+            <CustomButton
+              text={'$' + val}
+              type={val === selectedAmount ? 'B' : 'A'}
+              onPress={() => setSelectedAmount(val)}
+              key={idx}
+            />
+          ))}
       </View>
       <View style={GST.FLEX_END}>
         <CustomImage
