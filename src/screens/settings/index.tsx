@@ -131,6 +131,12 @@ const Settings = ({navigation}: Props) => {
             onChangeText={text => handleAmountChange(text, 3)}
           />
         </View>
+        <View style={GST.MB4}>
+          <CustomText size="2XL" style={{...GST.BOLD, ...GST.MB4}}>
+            Reader Name
+          </CustomText>
+          <TextInput style={styles.inputField} />
+        </View>
       </View>
       <View style={[GST.FLEX_ROW, GST.MB4]}>
         <CustomButton

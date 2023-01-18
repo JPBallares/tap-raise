@@ -17,15 +17,17 @@ export const styles = StyleSheet.create({
     borderWidth: RF(1),
     borderColor: COLORS.BLUE_600,
     fontSize: RF(18),
-    height: RF(150),
+    height: RF(80),
   },
   backButton: {
+    ...GST.P1,
     backgroundColor: COLORS.RED_600,
   },
   backButtonText: {
     color: COLORS.WHITE,
   },
   advancedButton: {
+    ...GST.P1,
     backgroundColor: COLORS.GRAY_600,
   },
   advancedButtonText: {
