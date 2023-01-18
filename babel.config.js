@@ -13,6 +13,7 @@ module.exports = {
           '@hooks': './src/hooks',
           '@redux': './src/redux',
           '@services': './src/services',
+          '@store': './src/store',
           '@theme': './src/theme',
           '@utils': './src/utils',
           '@i18n': './src/i18n',
