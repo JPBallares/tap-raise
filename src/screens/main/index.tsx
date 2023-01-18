@@ -13,7 +13,9 @@ import {SETTINGS_PIN} from '@utils/constants';
 import {ROUTES} from '@utils/routes';
 import React from 'react';
 import {useState} from 'react';
-import {TouchableWithoutFeedback, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
+
+import {styles} from './styles';
 
 type Props = StackScreenProps<MainStackParamList, ROUTES.MAIN>;
 
@@ -29,22 +31,23 @@ const Main = ({navigation}: Props) => {
         <CustomText size="3XL" center style={{...GST.MB4, ...GST.BOLD}}>
           {donationText}
         </CustomText>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate(ROUTES.SUCCESS)}>
+        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.SUCCESS)}>
           <CustomText size="3XL" center style={{...GST.MB4, ...GST.MEDIUM}}>
             Tap to donate
           </CustomText>
-        </TouchableWithoutFeedback>
-        {amounts
-          .filter(val => val)
-          .map((val, idx) => (
-            <CustomButton
-              text={'$' + val}
-              type={val === selectedAmount ? 'B' : 'A'}
-              onPress={() => setSelectedAmount(val)}
-              key={idx}
-            />
-          ))}
+        </TouchableOpacity>
+        <View style={[GST.FLEX, styles.buttonContainer]}>
+          {amounts
+            .filter(val => val)
+            .map((val, idx) => (
+              <CustomButton
+                text={'$' + val}
+                type={val === selectedAmount ? 'B' : 'A'}
+                onPress={() => setSelectedAmount(val)}
+                key={idx}
+              />
+            ))}
+        </View>
       </View>
       <View style={GST.FLEX_END}>
         <CustomImage
