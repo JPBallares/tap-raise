@@ -13,26 +13,37 @@ import {SETTINGS_PIN} from '@utils/constants';
 import {ROUTES} from '@utils/routes';
 import React from 'react';
 import {useState} from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {TextStyle, TouchableOpacity, View, ViewStyle} from 'react-native';
 
 import {styles} from './styles';
 
 type Props = StackScreenProps<MainStackParamList, ROUTES.MAIN>;
 
 const Main = ({navigation}: Props) => {
-  const {logoUrl, donationText, amounts} = useAppSelector(
-    (state: RootState) => state.config,
-  );
+  const {logoUrl, donationText, amounts, backgroundColor, foregroundColor} =
+    useAppSelector((state: RootState) => state.config);
   const [selectedAmount, setSelectedAmount] = useState(amounts[0]);
+  const textColor: TextStyle = {
+    color: foregroundColor,
+  };
+  const background: ViewStyle = {
+    backgroundColor,
+  };
   return (
-    <Wrapper>
+    <Wrapper containerStyle={background}>
       <Banner uri={logoUrl} />
       <View style={[GST.P4, GST.FLEX]}>
-        <CustomText size="3XL" center style={{...GST.MB4, ...GST.BOLD}}>
+        <CustomText
+          size="3XL"
+          center
+          style={{...GST.MB4, ...GST.BOLD, ...textColor}}>
           {donationText}
         </CustomText>
         <TouchableOpacity onPress={() => navigation.navigate(ROUTES.SUCCESS)}>
-          <CustomText size="3XL" center style={{...GST.MB4, ...GST.MEDIUM}}>
+          <CustomText
+            size="3XL"
+            center
+            style={{...GST.MB4, ...GST.MEDIUM, ...textColor}}>
             Tap to donate
           </CustomText>
         </TouchableOpacity>

@@ -32,12 +32,12 @@ const CustomButton: React.FC<Props> = ({
             ? COLORS.GRAY_100
             : typeA
             ? COLORS.WHITE
-            : COLORS.BLUE_600,
+            : COLORS.GRAY_500,
           borderColor: disabled
             ? COLORS.GRAY_300
             : typeA
             ? COLORS.GRAY_300
-            : COLORS.BLUE_900,
+            : COLORS.GRAY_900,
         },
         containerStyle,
       ]}
