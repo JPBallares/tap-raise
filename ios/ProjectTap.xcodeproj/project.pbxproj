@@ -13,8 +13,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		32496F530F5B38344F1115AC /* libPods-ProjectTap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B31468FD5DBD067C1783268 /* libPods-ProjectTap.a */; };
-		4EADE1C529788393002CDC55 /* SquareReaderSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */; };
+		4EADE1C929789940002CDC55 /* SquareReaderSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */; };
 		4EADE1C629788393002CDC55 /* SquareReaderSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EADE1CB29789DF1002CDC55 /* libRNReaderSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1CA29789DF1002CDC55 /* libRNReaderSDK.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		3B58BB60527E12F4A601E85D /* Pods-ProjectTap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTap.release.xcconfig"; path = "Target Support Files/Pods-ProjectTap/Pods-ProjectTap.release.xcconfig"; sourceTree = "<group>"; };
 		3E57C447E5A2BDA47948893A /* Pods-ProjectTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTap.debug.xcconfig"; path = "Target Support Files/Pods-ProjectTap/Pods-ProjectTap.debug.xcconfig"; sourceTree = "<group>"; };
 		4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SquareReaderSDK.xcframework; sourceTree = "<group>"; };
+		4EADE1CA29789DF1002CDC55 /* libRNReaderSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReaderSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ProjectTap/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B31468FD5DBD067C1783268 /* libPods-ProjectTap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProjectTap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48B1FE600F99FCD4FD8ED13 /* Pods-ProjectTap-ProjectTapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTap-ProjectTapTests.release.xcconfig"; path = "Target Support Files/Pods-ProjectTap-ProjectTapTests/Pods-ProjectTap-ProjectTapTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EADE1C529788393002CDC55 /* SquareReaderSDK.xcframework in Frameworks */,
+				4EADE1CB29789DF1002CDC55 /* libRNReaderSDK.a in Frameworks */,
+				4EADE1C929789940002CDC55 /* SquareReaderSDK.xcframework in Frameworks */,
 				32496F530F5B38344F1115AC /* libPods-ProjectTap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +120,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EADE1CA29789DF1002CDC55 /* libRNReaderSDK.a */,
 				4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				9B31468FD5DBD067C1783268 /* libPods-ProjectTap.a */,
@@ -532,6 +536,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -561,6 +571,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -640,6 +656,8 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-fmodules",
+					"-fcxx-modules",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -704,6 +722,8 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-fmodules",
+					"-fcxx-modules",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
