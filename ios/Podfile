@@ -34,6 +34,20 @@ target 'ProjectTap' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # permissions
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-BluetoothPeripheral', :path => "#{permissions_path}/BluetoothPeripheral"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'Permission-LocationAccuracy', :path => "#{permissions_path}/LocationAccuracy"
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-MediaLibrary', :path => "#{permissions_path}/MediaLibrary"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
+  pod 'Permission-PhotoLibraryAddOnly', :path => "#{permissions_path}/PhotoLibraryAddOnly"
+  pod 'Permission-StoreKit', :path => "#{permissions_path}/StoreKit"
+
   target 'ProjectTapTests' do
     inherit! :complete
     # Pods for testing

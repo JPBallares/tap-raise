@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from '@hooks/store';
 import {MainStackParamList} from '@interfaces/navigation';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootState} from '@store';
-import {setAmount, setConfig} from '@store/reducers/configReducer';
+import {setAmount, setConfig} from '@store/slices/configSlice';
 import {GST} from '@theme/globalStyles';
 import {ADVANCED_PIN} from '@utils/constants';
 import {ROUTES} from '@utils/routes';
@@ -65,6 +65,8 @@ const Settings = ({navigation}: Props) => {
           style={styles.inputField}
           value={logoUrl}
           onChangeText={text => handleConfigChange(text, 'logoUrl')}
+          autoCapitalize="none"
+          keyboardType="url"
         />
       </View>
       <View style={GST.MB4}>

@@ -26,4 +26,7 @@ export const styles = StyleSheet.create({
   backButtonText: {
     color: COLORS.WHITE,
   },
+  authButton: {
+    width: RF(180),
+  },
 });

@@ -3,7 +3,8 @@ import {createAction} from '@reduxjs/toolkit';
 import {AnyAction, combineReducers} from 'redux';
 import {persistReducer} from 'redux-persist';
 
-import configReducer from './configReducer';
+import configReducer from './configSlice';
+import readerReducer from './readerSlice';
 
 export const mutation_types = {
   CLEAR_STATE: 'CLEAR_STATE',
@@ -18,12 +19,13 @@ const rootConfig = {
   version: 1,
   storage: AsyncStorage,
   /* add states here that needs to be persisted */
-  whitelist: ['config'],
+  whitelist: ['config', 'reader'],
 };
 
 /* combine all reducers into single root reducer */
 const reducer = combineReducers({
   config: configReducer,
+  reader: readerReducer,
 });
 
 const persistedReducer = persistReducer(rootConfig, reducer);

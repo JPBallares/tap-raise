@@ -9,7 +9,7 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 
-import reducer from './reducers/index';
+import reducer from './slices/index';
 
 /* configure store with all the reducers (persisted reducer) */
 const store = configureStore({

@@ -1,10 +1,12 @@
-import {AUTH_CODE} from '@utils/constants';
 import {Alert} from 'react-native';
 import {
   authorizeAsync,
   AuthorizeErrorNoNetwork,
+  canDeauthorizeAsync,
   CheckoutErrorCancelled,
   CheckoutErrorSdkNotAuthorized,
+  deauthorizeAsync,
+  getAuthorizedLocationAsync,
   startCheckoutAsync,
   UsageError,
 } from 'react-native-square-reader-sdk';
@@ -14,12 +16,15 @@ class SquareReader {
 
   constructor() {
     this.authorizedLocation = null;
-    this.initialize();
   }
 
-  async initialize() {
+  async initialize(authCode: string) {
+    await this.getExistingAuthorizedLocation();
+    if (this.authorizedLocation) {
+      return;
+    }
     try {
-      this.authorizedLocation = await authorizeAsync(AUTH_CODE);
+      this.authorizedLocation = await authorizeAsync(authCode);
       // Authorized and authorizedLocation is available
     } catch (ex: any) {
       switch (ex.code) {
@@ -70,6 +75,34 @@ class SquareReader {
       }
     }
   }
+
+  async getExistingAuthorizedLocation() {
+    try {
+      this.authorizedLocation = await getAuthorizedLocationAsync();
+    } catch (ex: any) {
+      if (__DEV__) {
+        Alert.alert(ex.debugCode, ex.debugMessage);
+      }
+    }
+  }
+
+  async deauthorize() {
+    if (await canDeauthorizeAsync()) {
+      try {
+        await deauthorizeAsync();
+        return true;
+      } catch (ex: any) {
+        let errorMessage = ex.message;
+        if (__DEV__) {
+          errorMessage += `\n\nDebug Message: ${ex.debugMessage}`;
+          console.log(`${ex.code}:${ex.debugCode}:${ex.debugMessage}`);
+        }
+        Alert.alert('Error', errorMessage);
+      }
+    } else {
+      return false;
+    }
+  }
 }
 
-export default new SquareReader();
+export default SquareReader;

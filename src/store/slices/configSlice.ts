@@ -1,7 +1,7 @@
 import {PayloadAction, Slice} from '@reduxjs/toolkit';
 import {createSlice} from '@reduxjs/toolkit';
 
-type AmountsType = [number, number, number, number]
+type AmountsType = [number, number, number, number];
 
 export type ConfigState = {
   logoUrl: string;
@@ -12,6 +12,7 @@ export type ConfigState = {
   fundraiserId: string;
   stripeKey: string;
   stripeSecret: string;
+  readerAuthCode: string;
 };
 
 const initialState: ConfigState = {
@@ -23,6 +24,7 @@ const initialState: ConfigState = {
   fundraiserId: '',
   stripeKey: '',
   stripeSecret: '',
+  readerAuthCode: '',
 };
 
 export const configSlice: Slice<ConfigState> = createSlice({

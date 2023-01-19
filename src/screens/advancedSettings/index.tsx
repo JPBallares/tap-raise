@@ -4,9 +4,12 @@ import Wrapper from '@components/wrapper';
 import {useAppDispatch, useAppSelector} from '@hooks/store';
 import {MainStackParamList} from '@interfaces/navigation';
 import {StackScreenProps} from '@react-navigation/stack';
+import SquareReader from '@screens/services/reader';
 import {RootState} from '@store';
-import {setConfig} from '@store/reducers/configReducer';
+import {setConfig} from '@store/slices/configSlice';
+import {setAuthorizedLocation} from '@store/slices/readerSlice';
 import {GST} from '@theme/globalStyles';
+import {TEMP_AUTH_CODE} from '@utils/constants';
 import {ROUTES} from '@utils/routes';
 import React, {useCallback} from 'react';
 import {TextInput, View} from 'react-native';
@@ -17,7 +20,9 @@ type Props = StackScreenProps<MainStackParamList, ROUTES.ADVANCE_SETTINGS>;
 
 const AdvancedSettings = ({navigation}: Props) => {
   const config = useAppSelector((state: RootState) => state.config);
-  const {fundraiserId, stripeKey, stripeSecret} = config;
+  const readerStore = useAppSelector((state: RootState) => state.reader);
+  const {fundraiserId, stripeKey, stripeSecret, readerAuthCode} = config;
+
   const dispatch = useAppDispatch();
 
   const handleConfigChange = useCallback(
@@ -31,6 +36,20 @@ const AdvancedSettings = ({navigation}: Props) => {
     },
     [config, dispatch],
   );
+
+  const handleAuth = useCallback(async () => {
+    const reader = new SquareReader();
+    await reader.initialize(readerAuthCode || TEMP_AUTH_CODE);
+    if (reader.authorizedLocation) {
+      dispatch(
+        setAuthorizedLocation({
+          ...readerStore,
+          authorizedLocation: reader.authorizedLocation,
+        }),
+      );
+    }
+    console.log({readerStore, reader});
+  }, [dispatch, readerAuthCode, readerStore]);
 
   const handleBack = useCallback(() => {
     navigation.reset({
@@ -72,6 +91,24 @@ const AdvancedSettings = ({navigation}: Props) => {
             secureTextEntry
             value={stripeSecret}
             onChangeText={text => handleConfigChange(text, 'stripeSecret')}
+          />
+        </View>
+        <View style={GST.MB4}>
+          <CustomText size="2XL" style={{...GST.BOLD, ...GST.MB4}}>
+            Square Reader Mobile Auth Code
+          </CustomText>
+          <TextInput
+            style={styles.inputField}
+            secureTextEntry
+            value={readerAuthCode}
+            onChangeText={text => handleConfigChange(text, 'readerAuthCode')}
+          />
+        </View>
+        <View style={[GST.FLEX_END, GST.MB4]}>
+          <CustomButton
+            containerStyle={{...styles.authButton}}
+            text="Authorize"
+            onPress={handleAuth}
           />
         </View>
       </View>

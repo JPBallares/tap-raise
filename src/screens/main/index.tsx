@@ -7,6 +7,7 @@ import Wrapper from '@components/wrapper';
 import {useAppSelector} from '@hooks/store';
 import {MainStackParamList} from '@interfaces/navigation';
 import {StackScreenProps} from '@react-navigation/stack';
+import SquareReader from '@screens/services/reader';
 import {RootState} from '@store';
 import {GST} from '@theme/globalStyles';
 import {SETTINGS_PIN} from '@utils/constants';
@@ -29,6 +30,13 @@ const Main = ({navigation}: Props) => {
   const background: ViewStyle = {
     backgroundColor,
   };
+  const handleTapToDonate = async () => {
+    const reader = new SquareReader();
+    const result = await reader.startCheckout(selectedAmount);
+    console.log(result);
+
+    navigation.navigate(ROUTES.SUCCESS);
+  };
   return (
     <Wrapper containerStyle={background}>
       <Banner uri={logoUrl} />
@@ -39,7 +47,7 @@ const Main = ({navigation}: Props) => {
           style={{...GST.MB4, ...GST.BOLD, ...textColor}}>
           {donationText}
         </CustomText>
-        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.SUCCESS)}>
+        <TouchableOpacity onPress={handleTapToDonate}>
           <CustomText
             size="3XL"
             center
