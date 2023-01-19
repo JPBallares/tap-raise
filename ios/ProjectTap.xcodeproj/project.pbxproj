@@ -13,8 +13,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		32496F530F5B38344F1115AC /* libPods-ProjectTap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B31468FD5DBD067C1783268 /* libPods-ProjectTap.a */; };
-		4EADE1C929789940002CDC55 /* SquareReaderSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */; };
 		4EADE1C629788393002CDC55 /* SquareReaderSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EADE1C929789940002CDC55 /* SquareReaderSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1C429788393002CDC55 /* SquareReaderSDK.xcframework */; };
 		4EADE1CB29789DF1002CDC55 /* libRNReaderSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EADE1CA29789DF1002CDC55 /* libRNReaderSDK.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -541,6 +541,8 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-fmodules",
+					"-fcxx-modules",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -576,6 +578,8 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
+					"-fmodules",
+					"-fcxx-modules",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -594,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -621,6 +626,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -668,6 +674,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -695,6 +702,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
